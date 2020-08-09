@@ -4,6 +4,7 @@ USER root
         
 WORKDIR /home/app        
 RUN git clone https://github.com/ngsxfem/ngsxfem.git
+WORKDIR /home/app/ngsxfem
 RUN git submodule update --init --recursive  
 RUN mkdir /home/app/ngsxfem/build
 WORKDIR /home/app/ngsxfem/build
