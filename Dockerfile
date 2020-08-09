@@ -8,7 +8,7 @@ WORKDIR /home/app/ngsxfem
 RUN git submodule update --init --recursive  
 RUN mkdir /home/app/ngsxfem/build
 WORKDIR /home/app/ngsxfem/build
-RUN cmake -DBUILD_NGSOLVE=OFF        
+RUN cmake -DBUILD_NGSOLVE=OFF ..     
 RUN make -j3
 RUN make install
                 
