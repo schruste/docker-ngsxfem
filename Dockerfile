@@ -12,6 +12,9 @@ WORKDIR /home/app/ngsxfem/build
 RUN cmake -DBUILD_NGSOLVE=OFF ..     
 RUN make -j3
 RUN make install
+
+
+RUN pip3 install pytest
 RUN make test
                 
 USER root
