@@ -12,6 +12,7 @@ WORKDIR /home/app/ngsxfem/build
 RUN cmake -DBUILD_NGSOLVE=OFF ..     
 RUN make -j3
 RUN make install
+RUN make test
                 
 USER root
 RUN chown -R ${NB_UID} ${HOME}
