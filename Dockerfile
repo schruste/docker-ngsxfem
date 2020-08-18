@@ -14,8 +14,8 @@ RUN make -j3
 RUN make install
 
 
-RUN pip3 install pytest
-RUN make test
+#RUN pip3 install pytest
+#RUN make test
                 
 USER root
 RUN chown -R ${NB_UID} ${HOME}
