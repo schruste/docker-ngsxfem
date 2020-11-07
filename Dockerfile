@@ -5,7 +5,7 @@ USER root
 WORKDIR /home/app
 RUN pip3 install git+https://github.com/ngsxfem/ngsxfem.git@master --user --upgrade --verbose
 
-export PYTHONPATH="${PYTHONPATH}:/home/jovyan/.local/lib/python3.8/site-packages/lib/python3/dist-packages/"
+RUN export PYTHONPATH="${PYTHONPATH}:/home/jovyan/.local/lib/python3.8/site-packages/lib/python3/dist-packages/"
                    
 # RUN git clone https://github.com/ngsxfem/ngsxfem.git
 # WORKDIR /home/app/ngsxfem
