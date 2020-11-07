@@ -5,8 +5,6 @@ USER root
 WORKDIR /home/app
 RUN pip3 install git+https://github.com/ngsxfem/ngsxfem.git@master --user --upgrade --verbose
 
-RUN ln -s /home/jovyan/.local/lib/python3.8/site-packages/lib/python3/dist-packages/* /home/jovyan/.local/lib/python3.8/site-packages/
-                   
 # RUN git clone https://github.com/ngsxfem/ngsxfem.git
 # WORKDIR /home/app/ngsxfem
 # RUN git checkout master
@@ -22,6 +20,10 @@ RUN ln -s /home/jovyan/.local/lib/python3.8/site-packages/lib/python3/dist-packa
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
+
+#HACK: (not nice but somehow I don't get the pythonpath settings right (at installation time or run time..))       
+RUN cp -r /home/jovyan/.local/lib/python3.8/site-packages/lib/python3/dist-packages/xfem /home/jovyan/.local/lib/python3.8/site-packages/
+                   
         
 WORKDIR /home/${NB_USER}
                 
