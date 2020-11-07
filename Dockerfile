@@ -9,7 +9,7 @@ RUN git checkout master
 RUN git submodule update --init --recursive  
 RUN mkdir /home/app/ngsxfem/build
 WORKDIR /home/app/ngsxfem/build
-RUN cmake -DBUILD_NGSOLVE=OFF ..     
+RUN cmake -DBUILD_NGSOLVE=OFF -DCMAKE_INSTALL_PREFIX=/home/jovyan/.local/lib/python3.8/site-packages/ ..     
 RUN make -j3
 RUN make install
 
