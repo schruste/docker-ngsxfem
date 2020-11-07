@@ -3,7 +3,7 @@ FROM schruste/ngsolve:latest
 USER root
         
 WORKDIR /home/app
-pip3 install git+https://github.com/ngsxfem/ngsxfem.git@master --user --upgrade --verbose
+RUN pip3 install git+https://github.com/ngsxfem/ngsxfem.git@master --user --upgrade --verbose
              
 # RUN git clone https://github.com/ngsxfem/ngsxfem.git
 # WORKDIR /home/app/ngsxfem
