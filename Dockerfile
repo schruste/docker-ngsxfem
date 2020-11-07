@@ -5,7 +5,7 @@ USER root
 WORKDIR /home/app
 RUN pip3 install git+https://github.com/ngsxfem/ngsxfem.git@master --user --upgrade --verbose
 
-RUN export PYTHONPATH="${PYTHONPATH}:/home/jovyan/.local/lib/python3.8/site-packages/lib/python3/dist-packages/"
+RUN ln -s /home/jovyan/.local/lib/python3.8/site-packages/lib/python3/dist-packages/* /home/jovyan/.local/lib/python3.8/site-packages/
                    
 # RUN git clone https://github.com/ngsxfem/ngsxfem.git
 # WORKDIR /home/app/ngsxfem
@@ -16,10 +16,8 @@ RUN export PYTHONPATH="${PYTHONPATH}:/home/jovyan/.local/lib/python3.8/site-pack
 # RUN cmake -DBUILD_NGSOLVE=OFF -DCMAKE_INSTALL_PREFIX=/home/jovyan/.local ..     
 # RUN make -j3
 # RUN make install
-
-        
-#RUN pip3 install pytest
-#RUN make test
+# RUN pip3 install pytest
+# RUN make test
                 
 USER root
 RUN chown -R ${NB_UID} ${HOME}
