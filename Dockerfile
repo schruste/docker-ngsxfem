@@ -3,7 +3,7 @@ FROM schruste/ngsolve:latest
 USER root
         
 WORKDIR /home/app
-RUN echo "stupid"        
+RUN apt-get update
 RUN pip3 install git+https://github.com/ngsxfem/ngsxfem.git@master --user --upgrade --verbose
 
 # RUN git clone https://github.com/ngsxfem/ngsxfem.git
@@ -21,10 +21,7 @@ RUN pip3 install git+https://github.com/ngsxfem/ngsxfem.git@master --user --upgr
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
-
-#HACK: (not nice but somehow I don't get the pythonpath settings right (at installation time or run time..))       
-# RUN cp -r /home/jovyan/.local/lib/python3.8/site-packages/lib/python3/dist-packages/xfem /home/jovyan/.local/lib/python3.8/site-packages/
-                   
         
 WORKDIR /home/${NB_USER}
+RUN python3 -c "import ngsolve; import xfem"        
                 
