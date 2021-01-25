@@ -10,7 +10,7 @@ USER ${NB_USER}
         
 WORKDIR ${HOME}
         
-git clone -b v1.3.2101 --single-branch https://github.com/ngsxfem/ngsxfem.git ngsxfem
+RUN git clone -b v1.3.2101 --single-branch https://github.com/ngsxfem/ngsxfem.git ngsxfem
         
 RUN pip3 install git+https://github.com/ngsxfem/ngsxfem.git@v1.3.2101 --user --upgrade --verbose
 
